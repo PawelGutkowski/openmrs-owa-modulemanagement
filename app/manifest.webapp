@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "name": "modulesmanagement",
+  "description": "OWA for managing modules",
+  "launch_path": "index.html",
+  "icons": {
+    "48": "/img/omrs-button.png"
+  },
+  "developer": {
+    "name": "PawelGutkowski",
+    "url": "https://github.com/PawelGutkowski/openmrs-owa-modulesmanagement"
+  },
+  "default_locale": "en",
+    "activities": {
+      "openmrs": {
+        "href": "*"
+      }
+    }
+}

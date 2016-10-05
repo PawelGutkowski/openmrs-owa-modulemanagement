@@ -1,0 +1,12 @@
+node_modules
+bower_components
+coverage
+dist
+config.json
+.idea
+*.iml
+*~
+.project
+.settings
+npm-debug.log
+conceptdictionary.zip
