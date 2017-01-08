@@ -1,23 +1,60 @@
-<h2>Modules Management</h2>
-<p>
-    Please note that adding, removing, stopping or starting modules will restart OpenMRS,
-    meaning that all scheduled tasks and background processes will be interrupted
-</p>
-<br>
+<div ng-if="!vm.performingAction">
+    <h2>Modules Management</h2>
+    <p>
+        Please note that adding, removing, stopping or starting modules will restart OpenMRS,
+        meaning that all scheduled tasks and background processes will be interrupted
+    </p>
+    <br>
 
-<table>
-    <thead>
-        <th>Status</th>
-        <th>Name</th>
-        <th>Version</th>
-        <th>Actions</th>
-    </thead>
-    <tbody>
-        <tr ng-repeat="module in vm.modules">
-            <td ng-class="vm.createStatusStyle(module.started)" ng-bind="vm.createStatus(module.started)"></td>
-            <td><a ui-sref="module({ UUID: module.uuid })">{{module.name}}</a></td>
-            <td>{{module.version}}</td>
-            <td>TBD</td>
-        </tr>
-    </tbody>
-</table>
+    <div class="button-group">
+        <button ng-click="vm.startAll()"><i class="icon-play"></i>&nbsp;Start all</button>
+    </div>
+
+    <table>
+        <thead>
+            <th>Status</th>
+            <th>Name</th>
+            <th>Version</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="module in vm.modules">
+                <td ng-class="vm.createStatusStyle(module.started)" ng-bind="vm.createStatus(module.started)"></td>
+                <td><a ui-sref="module({ UUID: module.uuid })">{{module.name}}</a></td>
+                <td>{{module.version}}</td>
+                <td style="align-content: center">
+                    <i ng-if="!module.started"
+                       class="icon-play start-module"
+                       ng-click="vm.startModule(module.uuid)"></i>
+                    <i ng-if="module.started"
+                       class="icon-stop stop-module"
+                       ng-click="vm.stopModule(module.uuid)"></i>
+                    <i class="icon-remove"></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+
+    <fieldset>
+        <legend><i class="icon-exclamation-sign"></i>Help</legend>
+        <div class="help">
+            <ol>
+                <li>A module is loaded to OpenMRS by either a) dropping it into module repository and restarting the
+                    webapp or b) uploading via Add/upgrade module view
+                </li>
+                <li>When module is unloaded, it is first 'stopped', then the omod file is removed from the repository
+                </li>
+                <li>A loaded module can be stopped and started. A stopped module is still loaded, it just doesn't have
+                    any effect on the system
+                </li>
+            </ol>
+        </div>
+    </fieldset>
+</div>
+
+<div ng-if="vm.performingAction" class="loading-screen">
+    <h2>Performing module action. Please wait</h2>
+</div>
+

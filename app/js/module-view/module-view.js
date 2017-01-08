@@ -10,7 +10,7 @@ let moduleViewModule = angular.module('moduleview', [ uiRouter, 'openmrs-contrib
 
         $stateProvider.state('module', {
             url: '/module/:UUID',
-            template: "<moduleview module='$resolve.module'></moduleview>",
+            template: "<moduleview module='$resolve.module'/>",
             resolve: {
                 module: module
             }

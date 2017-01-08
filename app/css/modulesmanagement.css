@@ -75,13 +75,36 @@ header .logo img {
     align-self: center;
 }
 
-.status-running {
+.module-status {
+    font-weight: bold;
     color: white;
-    background-color: green;
     text-align: center;
 }
 
-.status-stopped {
-    color: white;
+.running {
+    background-color: green;
+}
+
+.stopped {
     background-color: red;
+}
+
+i.start-module {
+    color: green;
+}
+
+i.stop-module {
+    color: red;
+}
+
+.loading-screen {
+    margin: 100px;
+    padding: 100px;
+}
+
+.help {
+    font-size: small;
+    font-style: italic;
+    font-weight: lighter;
+    padding: 10px;
 }

@@ -6,7 +6,7 @@ class ModuleViewController {
 
       $rootScope.links = {};
       $rootScope.links["Modules Management"] = "";
-      $rootScope.links[vm.module.name] = "module/"+vm.module.uuid;
+      $rootScope.links[ vm.module.name ] = "module/"+ vm.module.uuid;
   }
 }
 
