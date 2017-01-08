@@ -3,7 +3,9 @@ import controller from './home.controller.js';
 
 let homeComponent = {
     restrict: 'E',
-    bindings: {},
+    bindings: {
+        modules : "<"
+    },
     template: template,
     controller: controller,
     controllerAs: 'vm'

@@ -10,9 +10,18 @@ let homeModule = angular.module('home', [ uiRouter, 'openmrs-contrib-uicommons']
 
         $stateProvider.state('home', {
             url: '/',
-            template: "<home></home>"
+            template: "<home modules='$resolve.modules'></home>",
+            resolve: {
+                modules : modules
+            }
         })
     })
     .component('home', homeComponent);
+
+function modules(openmrsRest) {
+    return openmrsRest.listFull('module').then(function(response){
+        return response.results;
+    })
+}
 
 export default homeModule;

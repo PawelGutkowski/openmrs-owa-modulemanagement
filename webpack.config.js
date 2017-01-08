@@ -168,6 +168,9 @@ var webpackConfig = {
 	    test: /\.css$/,
 	    loader: 'style-loader!css-loader'
 	}, {
+        test: /\.json$/,
+        loader: 'json'
+    }, {
 	    test: /\.(png|jpg|jpeg|gif|svg)$/,
 	    loader: 'url'
 	}, {

@@ -74,3 +74,14 @@ header .logo img {
 .instructions {
     align-self: center;
 }
+
+.status-running {
+    color: white;
+    background-color: green;
+    text-align: center;
+}
+
+.status-stopped {
+    color: white;
+    background-color: red;
+}

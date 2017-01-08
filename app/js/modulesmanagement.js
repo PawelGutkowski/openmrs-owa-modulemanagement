@@ -12,4 +12,12 @@
 import angular from 'angular'
 import Main from './main/main'
 
-export default angular.module('main', [ Main.name ])
+import messagesEn from '../translations/messages_en.json';
+import messagesEs from '../translations/messages_es.json';
+
+export default angular.module('main', [ Main.name ]).config(['openmrsTranslateProvider', translateConfig]);
+
+function translateConfig(openmrsTranslateProvider) {
+    openmrsTranslateProvider.addTranslations('en', messagesEn);
+    openmrsTranslateProvider.addTranslations('es', messagesEs);
+}

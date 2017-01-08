@@ -1,1 +1,23 @@
-{{vm.hello}}
+<h2>Modules Management</h2>
+<p>
+    Please note that adding, removing, stopping or starting modules will restart OpenMRS,
+    meaning that all scheduled tasks and background processes will be interrupted
+</p>
+<br>
+
+<table>
+    <thead>
+        <th>Status</th>
+        <th>Name</th>
+        <th>Version</th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="module in vm.modules">
+            <td ng-class="vm.createStatusStyle(module.started)" ng-bind="vm.createStatus(module.started)"></td>
+            <td><a ui-sref="module({ UUID: module.uuid })">{{module.name}}</a></td>
+            <td>{{module.version}}</td>
+            <td>TBD</td>
+        </tr>
+    </tbody>
+</table>
