@@ -49,7 +49,9 @@ class HomeController {
       function createErrorHandler() {
           return (exception)=> {
               vm.performingAction = false;
-              openmrsNotification.error(exception.data.error.message);
+              let message = exception.data.error.message
+              //substring to omit '[' and ';]'
+              openmrsNotification.error(message.substring(1, message.length - 3));
           }
       }
 

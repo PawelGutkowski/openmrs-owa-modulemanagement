@@ -1,8 +1,13 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
-import moduleViewComponent from './module-view.component.js';
+import moduleViewController from './module-view.controller.js';
 import uicommons from 'openmrs-contrib-uicommons';
+import template from './module-view.html';
 
+/**
+ * Module view is not component because of problems with resolve.
+ * Using simple controller is workaround
+ */
 let moduleViewModule = angular.module('moduleview', [ uiRouter, 'openmrs-contrib-uicommons'])
     .config(($stateProvider, $urlRouterProvider) => {
         "ngInject";
@@ -10,13 +15,15 @@ let moduleViewModule = angular.module('moduleview', [ uiRouter, 'openmrs-contrib
 
         $stateProvider.state('module', {
             url: '/module/:UUID',
-            template: "<moduleview module='$resolve.module'/>",
+            template: template,
+            controller: 'ModuleViewController',
+            controllerAs: 'vm',
             resolve: {
                 module: module
             }
         })
     })
-    .component('moduleview', moduleViewComponent);
+    .controller('ModuleViewController', moduleViewController);
 
 function module(openmrsRest, $stateParams) {
     return openmrsRest.getFull('module', {uuid: $stateParams.UUID}).then(function(response){

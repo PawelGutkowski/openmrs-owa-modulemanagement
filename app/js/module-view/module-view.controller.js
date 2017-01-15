@@ -1,13 +1,13 @@
-class ModuleViewController {
-  constructor($rootScope) {
-      "ngInject"
-      var vm = this;
-      console.log(this)
+function ModuleViewController(module, $rootScope){
+    "ngInject"
+    var vm = this;
+    vm.module = module;
 
-      $rootScope.links = {};
-      $rootScope.links["Modules Management"] = "";
-      $rootScope.links[ vm.module.name ] = "module/"+ vm.module.uuid;
-  }
+    console.log(vm.module)
+
+    $rootScope.links = {};
+    $rootScope.links["Modules Management"] = "";
+    $rootScope.links[ vm.module.name ] = "module/"+ vm.module.uuid;
 }
 
 export default ModuleViewController;

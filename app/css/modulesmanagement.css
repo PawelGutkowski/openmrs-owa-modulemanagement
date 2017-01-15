@@ -91,15 +91,24 @@ header .logo img {
 
 i.start-module {
     color: green;
+    cursor: pointer;
 }
 
 i.stop-module {
     color: red;
+    cursor: pointer;
 }
 
 .loading-screen {
     margin: 100px;
     padding: 100px;
+}
+
+.error-message{
+    color: white;
+    background-color: rgba(255, 0, 22, 0.85);
+    border-radius: 2px;
+    padding: 8px;
 }
 
 .help {

@@ -6,11 +6,26 @@
     </p>
     <br>
 
+    <div>
+        <fieldset>
+            <legend>Errors</legend>
+            <div ng-repeat="module in vm.modules">
+                <div ng-if="module.startupErrorMessage" class="error-message">
+                    <strong>{{module.display}}</strong>
+                    <br>
+                    {{module.startupErrorMessage}}
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <br>
+
     <div class="button-group">
         <button ng-click="vm.startAll()"><i class="icon-play"></i>&nbsp;Start all</button>
     </div>
 
-    <table>
+    <table style="margin: 5px">
         <thead>
             <th>Status</th>
             <th>Name</th>

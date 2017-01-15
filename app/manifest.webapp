@@ -1,6 +1,6 @@
 {
   "version": "0.1.0",
-  "name": "modulesmanagement",
+  "name": "Modules Management",
   "description": "OWA for managing modules",
   "launch_path": "index.html",
   "icons": {
